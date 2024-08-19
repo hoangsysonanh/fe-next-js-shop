@@ -24,7 +24,7 @@ const CarousellBanner = ({ slides }: { slides: Array<string> }) => {
                         transform: `translateX(-${currentSlide * 100}%)`
                     }}>
                     {slides.map((slide,index) => {
-                        return <Image key={index} src={slide} alt='img-banner' className='w-full' />
+                        return <Image key={index} src={slide} alt='img-banner' className='w-full' fill />
                     })}
                 </div>
                 <div className='absolute top-0 flex items-center justify-between text-white w-full h-full'

@@ -1,3 +1,4 @@
+'use client'
 import CarousellBanner from "@/components/Carousell/CarousellBanner";
 import CarouSelProduct from "@/components/Carousell/CarouSelProduct";
 import CarouselUser from "@/components/Carousell/CarouselUser";
@@ -11,6 +12,8 @@ import SectionBanner from "@/components/Section/SectionBanner";
 import CardUser from "@/components/User/CardUser";
 import Image from "next/image";
 import { EContact } from "@/Interface";
+import { useEffect, useState } from "react";
+import axiosClient from "@/api/axiosClient";
 export type Product = {
   img: string,
   titleProduct: string,
@@ -20,7 +23,7 @@ export type Product = {
   sale: string
 }
 export type Contact = {
-  type: EContact| string,
+  type: EContact | string,
   link: string
 }
 
@@ -220,6 +223,22 @@ export default function Home() {
     }
   ]
 
+  const [data, setData] = useState<any[]>([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axiosClient.get<any>('https://api-pro.teklearner.com/class/v1/get-list-class?class_code=&skip=0&limit=16')
+        setData(res.data.data)
+      } catch (error) {
+        console.log('error', error);
+      }
+    }
+    fetchData()
+    console.log(data);
+
+  })
+
   return (
     <>
       <DefaultLayout>
@@ -256,13 +275,16 @@ export default function Home() {
               </CarouSelProduct>
             </div>
           </Section>
+          <Section title="render api">
+            <CarouSelProduct products={data}/>
+          </Section>
           <Section title="test">
             <div className="bg-white">
-            <CarouselUser users={users} />
+              <CarouselUser users={users} />
             </div>
           </Section>
         </div>
-        
+
       </DefaultLayout>
     </>
   );

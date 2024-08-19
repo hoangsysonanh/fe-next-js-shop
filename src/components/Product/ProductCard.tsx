@@ -24,7 +24,7 @@ const ProductCard = ({ img, titleProduct, brand, price1, price2, sale }: {
                     </div>
                     <div className='w-full bg-white py-2'>
                         <div className='mx-4'>
-                            <p className='text-lg font-medium '>{titleProduct}</p>
+                            <p className='text-lg font-medium truncate whitespace-nowrap'>{titleProduct}</p>
                             <span className='text-sm font-normal'>{brand}</span>
                         </div>
                         <div className='flex items-center justify-between mx-4 mt-2 gap-2'>
