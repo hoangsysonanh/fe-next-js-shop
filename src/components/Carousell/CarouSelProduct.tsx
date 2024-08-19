@@ -17,7 +17,7 @@ const CarouSelProduct = ({ products }: { products: Array<any> }) => {
     // comment is for testing
     return (
         <>
-            <div className="overflow-hidden relative">
+            <div className="overflow-hidden relative mt-12">
                 <div className='flex transition duration-500 ease-in-out'
                     style={{
                         transform: `translateX(-${currentSlide * 25}%)`

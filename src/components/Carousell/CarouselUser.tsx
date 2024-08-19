@@ -15,7 +15,7 @@ const CarouselUser = ({ users }: { users: Array<User> }) => {
     }
     return (
         <>
-            <div className='overflow-hidden relative'>
+            <div className='overflow-hidden relative mt-12'>
                 <div className='flex transition duration-500 ease-in-out gap-8'
                     style={{
                         transform: `translateX(-${currentSlide * 25}%)`

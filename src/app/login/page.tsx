@@ -1,3 +1,4 @@
+import BreadCrum from '@/components/BreadCrums/BreadCrum'
 import Form from '@/components/Form/Form'
 import DefaultLayout from '@/components/Layout/DefaultLayout'
 import Section from '@/components/Section/Section'
@@ -7,9 +8,12 @@ const page = () => {
     return (
         <>
             <DefaultLayout>
-                <Section title='' >
-                <Form />
-                </Section>
+                <div>
+                        <BreadCrum />
+                    <Section >
+                        <Form />
+                    </Section>
+                </div>
             </DefaultLayout>
         </>
     )

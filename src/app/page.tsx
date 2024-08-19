@@ -14,6 +14,7 @@ import Image from "next/image";
 import { EContact } from "@/Interface";
 import { useEffect, useState } from "react";
 import axiosClient from "@/api/axiosClient";
+import BreadCrum from "@/components/BreadCrums/BreadCrum";
 export type Product = {
   img: string,
   titleProduct: string,
@@ -275,8 +276,10 @@ export default function Home() {
               </CarouSelProduct>
             </div>
           </Section>
-          <Section title="render api">
-            <CarouSelProduct products={data}/>
+          <Section title="AMBASSADORS">
+            <div className="bg-white">
+              <CarouselUser users={users} />
+            </div>
           </Section>
         </div>
 
