@@ -278,11 +278,6 @@ export default function Home() {
           <Section title="render api">
             <CarouSelProduct products={data}/>
           </Section>
-          <Section title="test">
-            <div className="bg-white">
-              <CarouselUser users={users} />
-            </div>
-          </Section>
         </div>
 
       </DefaultLayout>

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Product } from '../../app/page';
 import ProductCard from '../Product/ProductCard';
 // const CarouSelProduct = ({ products }: { products: Array<Product> }) => {
-    const CarouSelProduct = ({ products }: { products: Array<any> }) => {
+const CarouSelProduct = ({ products }: { products: Array<any> }) => {
     const [currentSlide, setCurrentSlide] = useState(0)
     const prevSlide = () => {
         if (currentSlide === 0) { setCurrentSlide(products.length - 4) }
@@ -13,6 +13,8 @@ import ProductCard from '../Product/ProductCard';
         if (currentSlide === products.length - 4) { setCurrentSlide(0) }
         else { setCurrentSlide(currentSlide + 1) }
     }
+
+    // comment is for testing
     return (
         <>
             <div className="overflow-hidden relative">
@@ -21,15 +23,15 @@ import ProductCard from '../Product/ProductCard';
                         transform: `translateX(-${currentSlide * 25}%)`
                     }}
                 >
-                    {/* {products.map((product: Product, index) => { */}
-                    {products.map((product: any, index) => {
+                    {products.map((product: Product, index) => {
+                    {/* {products.map((product: any, index) => { */}
                         return (
-                            // <ProductCard key={index} img={product.img} titleProduct={product.titleProduct} brand={product.brand}
-                            //     price1={product.price1} price2={product.price2} sale={product.sale}
+                            <ProductCard key={index} img={product.img} titleProduct={product.titleProduct} brand={product.brand}
+                                price1={product.price1} price2={product.price2} sale={product.sale}
+                            />
+                            // <ProductCard key={product.class_code} img={product.img} titleProduct={product.class_name} brand={product.brand}
+                            // price1={product.course_price} price2={product.course_price} sale={product.course_discount}
                             // />
-                            <ProductCard key={product.class_code} img={product.img} titleProduct={product.class_name} brand={product.brand}
-                            price1={product.course_price} price2={product.course_price} sale={product.course_discount}
-                        />
                         )
                     })}
                 </div>
